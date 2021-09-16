@@ -1,5 +1,5 @@
 <!-- will show alert if no item avaliable inside cart -->
-<div class="alert alert-warning" role="alert">
+<div class="alert alert-warning" role="alert" <%= enhanced_cart.length > 0 ? "hidden" : nil  %>>
   <h4 class="alert-heading">Empty Cart!</h4>
   <p>Cart is empty, please go back and select at least one product to continue checkout.</p>
   <hr>
@@ -8,7 +8,9 @@
   </p>
 </div>
 
-<section class="cart-show" <%= @enhanced_cart ? null : "hidden" %>>
+
+
+<section class="cart-show" <%= enhanced_cart.length > 0 ? nil : "hidden" %>>
 
   <header class="page-header">
     <h1>My Cart</h1>
