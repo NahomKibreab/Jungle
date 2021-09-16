@@ -1,7 +1,17 @@
 class OrdersController < ApplicationController
 
   def show
+    products_id = []
+    @products = {}
+    @subtotal_cents = 0
     @order = Order.find(params[:id])
+    @line_items = LineItem.where({order_id: @order.id})
+    @line_items.each do |item| 
+      products_id.push(item.product_id)
+      @subtotal_cents += item.total_price_cents
+    end
+    products_id.each {|id| @products[Product.find(id).id] = Product.find(id)}
+    
   end
 
   def create
