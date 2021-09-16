@@ -16,7 +16,8 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 # Dotenv loads and looks for .env file
-require 'dotenv/load'
+require 'dotenv'
+Dotenv.load
 
 module Jungle
   class Application < Rails::Application
