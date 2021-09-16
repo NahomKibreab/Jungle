@@ -58,3 +58,6 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
+
+# Added at 2021-09-16 04:11:45 +0000 by vagrant:
+gem "dotenv", "~> 1.0"
