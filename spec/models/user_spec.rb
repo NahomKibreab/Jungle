@@ -18,5 +18,14 @@ RSpec.describe User, type: :model do
         expect(@user.save).to be false
       end
     end
+
+    context 'email must be unique and not case sensitive' do
+      it 'should return false if email is dublicated' do
+        @user = User.new({first_name:'Nahom', last_name: 'kibreab', email:'email@gmail.com', password:'password', password_confirmation: 'password'})
+        @user.save
+        @user2 = User.new({first_name:'first', last_name: 'last', email:'email@gmail.com', password:'password', password_confirmation: 'password'})
+        expect(@user2.save).to be false
+      end
+    end
   end
 end
