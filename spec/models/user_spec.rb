@@ -34,5 +34,20 @@ RSpec.describe User, type: :model do
         expect(@user2.save).to be false
       end
     end
+
+    context 'email,first_name,last_name need to be required' do
+      it 'should return false if email is missed' do
+        @user = User.new({first_name:'first', last_name: 'last', password:'password', password_confirmation: 'password'})
+        expect(@user.save).to be false
+      end
+      it 'should return false if first_name is missed' do
+        @user = User.new({last_name: 'last', email:'email@gmail.com', password:'password', password_confirmation: 'password'})
+        expect(@user.save).to be false
+      end
+      it 'should return false if last_name is missed' do
+        @user = User.new({first_name:'first', email:'email@gmail.com', password:'password', password_confirmation: 'password'})
+        expect(@user.save).to be false
+      end
+    end
   end
 end
