@@ -61,8 +61,24 @@ RSpec.describe User, type: :model do
       @user = User.new({first_name:'Nahom', last_name: 'kibreab', email:'email@gmail.com', password:'password', password_confirmation: 'password'})
       @user.save!
     end
+    
     it 'should login with correct credentials' do
       user = User.authenticate_with_credentials('email@gmail.com','password')
+      expect(user).not_to be nil
+    end
+    
+    it 'should not login with incorrect credentials' do
+      user = User.authenticate_with_credentials('email@gmail.com','password1')
+      expect(user).to be nil
+    end
+
+    it 'should login if there is spaces before or after the email' do
+      user = User.authenticate_with_credentials(' email@gmail.com ','password')
+      expect(user).not_to be nil
+    end
+
+    it 'should login if there is wrong case for the email' do
+      user = User.authenticate_with_credentials('Email@GMAIL.com','password')
       expect(user).not_to be nil
     end
   end
