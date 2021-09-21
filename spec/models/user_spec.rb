@@ -55,4 +55,15 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    before do
+      @user = User.new({first_name:'Nahom', last_name: 'kibreab', email:'email@gmail.com', password:'password', password_confirmation: 'password'})
+      @user.save!
+    end
+    it 'should login with correct credentials' do
+      user = User.authenticate_with_credentials('email@gmail.com','password')
+      expect(user).not_to be nil
+    end
+  end
 end
