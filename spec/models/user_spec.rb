@@ -17,6 +17,11 @@ RSpec.describe User, type: :model do
         @user = User.new({first_name:'Nahom', last_name: 'kibreab', email:'email@gmail.com', password_confirmation: 'password'})
         expect(@user.save).to be false
       end
+
+      it ('should have 3 minimum length') do
+        @user = User.new({first_name:'Nahom', last_name: 'kibreab', email:'email@gmail.com', password:'12', password_confirmation: '12'})
+        expect(@user.save).to be false
+      end
     end
 
     context 'email must be unique and not case sensitive' do
