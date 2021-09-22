@@ -1,6 +1,33 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 for purposes of learning Rails by example.
+
+# Features
+- It's multipage app where visitors can purchase items by clicking the Add button to be added to My Cart section
+- Or by clicking Details will open new page with full datails of the selected product
+- My Cart list all selected products with full description, price and quantity to update base on your needs. Changing the quantity to 0 will remove the product from My Cart table
+- Using Stripe's fake credit card you can complete the checkout 
+
+# Admin
+- You can add fake `USERNAME` and `PASSWORD` inside .env file to login to Admin product section
+- Authorized Admin user have access to add and remove products once login and also can add new category for the products.
+
+## Screenshots
+
+!["Screenshot of Jungle Home Page"](public/images/home-page.png)
+###### Jungle Home Page 
+
+!["Screenshot of My Cart"](public/images/my-cart.png)
+###### Order Summary inside My Cart 
+
+!["Screenshot of Stripe"](public/images/stripe.png)
+###### Payment Section 
+
+!["Screenshot of Admin Product Page"](public/images/admin-product.png)
+###### Admin Product Page 
+
+!["Screenshot of Admin Category"](public/images/admin-category.png)
+###### Admin Category Page 
 
 ## Additional Steps for Apple M1 Machines
 
@@ -31,3 +58,7 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Authors
+Developed by Nahom Mehanzel. You can find me on [LinkedIn](https://www.linkedin.com/in/nahom-mehanzel/) or [Twitter](https://twitter.com/NahomKibreab).
+
